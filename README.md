@@ -6,7 +6,17 @@ This template provides a minimal setup to get React working in Vite with HMR and
 
 ## Praticando Typescript com App-Studies
 
-- Utilizando classes para criar componentes de renderização;
+- Utilizando classes para criar componentes de renderização;\
+- Descontinuando class e mundando para funções;\
+- Uso de CSS Sass;\
+- Uso de CSS modules;\
+- Uso de Typescript;
+
+
+## Comoando iniciais
+
+- npm i
+- npm run dev
 
 Currently, two official plugins are available:
 
