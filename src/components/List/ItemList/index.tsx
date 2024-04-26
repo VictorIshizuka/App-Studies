@@ -1,6 +1,7 @@
+import { TaskT } from "../../../types";
 import style from "../list.module.scss";
 
-export const ItemList = ({ task, time }) => {
+export const ItemList = ({ task, time }: TaskT) => {
   return (
     <>
       <li className={style.item}>

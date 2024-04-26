@@ -1,19 +1,20 @@
+import { useState } from "react";
 import { Form } from "../components/Form";
 import { List } from "../components/List";
 import { StopWatch } from "../components/stopwatch";
 import style from "./app.module.scss";
-
-const list = [
-  { id: 1, task: "React", time: "01:00:00" },
-  { id: 2, task: "Javascript", time: "02:00:00" },
-];
+import { TaskT } from "../types";
 
 function App() {
+  const [isValue, setIsValue] = useState<TaskT[]>([
+    { task: "react", time: "01:00:00" },
+  ]);
+
   return (
     <div className={style.AppStyle}>
-      <Form />
+      <Form setState={setIsValue} />
       <StopWatch />
-      <List list={list} />
+      <List tasks={isValue} />
     </div>
   );
 }

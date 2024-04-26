@@ -1,12 +1,25 @@
 import React from "react";
 import { Button } from "../Button";
 import style from "./form.module.scss";
+import { TaskT } from "../../types";
 
-export class Form extends React.Component {
+export class Form extends React.Component<{
+  setState: React.Dispatch<React.SetStateAction<TaskT[]>>;
+}> {
+  state = {
+    task: "",
+    time: "--:--",
+  };
+
+  onSave(e: React.FormEvent<HTMLInputElement>) {
+    e.preventDefault();
+    this.props.setState(oldTasks => [...oldTasks, { ...this.state }]);
+  }
+
   render(): React.ReactNode {
     return (
       <>
-        <form className={style.newTask}>
+        <form className={style.newTask} onSubmit={this.onSave.bind(this)}>
           <div className={style.inputContainer}>
             <label htmlFor="task">Adicionar um novo estudo</label>
             <input
@@ -14,6 +27,10 @@ export class Form extends React.Component {
               name="task"
               id="task"
               placeholder="O que você quer estudar"
+              onChange={e =>
+                this.setState({ ...this.state, task: e.target.value })
+              }
+              value={this.state.task}
               required
             />
           </div>
@@ -24,12 +41,16 @@ export class Form extends React.Component {
               step="1"
               name="time"
               id="time"
-              min="00:00:00"
-              max="01:30:00"
+              min="00:00"
+              max="01:30"
+              onChange={e =>
+                this.setState({ ...this.state, time: e.target.value })
+              }
+              value={this.state.time}
               required
             />
           </div>
-          <Button>Botão</Button>
+          <Button>Adicionar</Button>
         </form>
       </>
     );
