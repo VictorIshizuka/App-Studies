@@ -29,7 +29,7 @@ export class Form extends React.Component {
               required
             />
           </div>
-          <Button />
+          <Button>Botão</Button>
         </form>
       </>
     );
