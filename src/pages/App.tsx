@@ -1,5 +1,6 @@
 import { Form } from "../components/Form";
 import { List } from "../components/List";
+import { StopWatch } from "../components/stopwatch";
 import style from "./app.module.scss";
 
 const list = [
@@ -11,6 +12,7 @@ function App() {
   return (
     <div className={style.AppStyle}>
       <Form />
+      <StopWatch />
       <List list={list} />
     </div>
   );
