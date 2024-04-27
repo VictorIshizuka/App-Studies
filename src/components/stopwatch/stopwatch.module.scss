@@ -1,0 +1,45 @@
+.stopWatch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-area: cronometro;
+
+  .clockWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #7687A1;
+    border-radius: 10px;
+    box-shadow: 2px 4px 4px #0000009F;
+    box-sizing: border-box;
+    font-size: 5rem;
+    margin-bottom: 24px;
+    padding: 16px 12px;
+    width: 100%;
+  }
+
+  .title {
+    font-size: 2rem;
+    padding-bottom: 1rem;
+  }
+
+ 
+
+  @media screen and (min-width:1280px) {
+    
+    .clockWrapper{
+      font-size: 12rem;
+    }
+
+    p {
+      font-size: 2rem;
+    }
+
+    .button {
+      grid-column-start: span 2;
+      justify-self: center;
+      width: 200px;
+      font-size: 2.25rem;
+    }
+  }
+}
