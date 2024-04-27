@@ -10,7 +10,7 @@ function App() {
   const [isTasks, setIsTasks] = useState<TaskT[]>([
     {
       task: "react",
-      time: "01:00:00",
+      time: "00:00:05",
       completed: false,
       id: "2",
       selected: false,
@@ -22,15 +22,33 @@ function App() {
     setIsTasks(oldTasks =>
       oldTasks.map(task => ({
         ...task,
-        selected: task.id === isSelected?.id ? true : false,
+        selected: task.id === selectedTask?.id ? true : false,
       }))
     );
+  }
+
+  function finallyTask() {
+    if (isSelected) {
+      setIsSelect(undefined);
+      setIsTasks(oldTasks =>
+        oldTasks.map(task => {
+          if (task.id === isSelected.id) {
+            return {
+              ...task,
+              selected: false,
+              completed: true,
+            };
+          }
+          return task;
+        })
+      );
+    }
   }
 
   return (
     <div className={style.AppStyle}>
       <Form setState={setIsTasks} />
-      <StopWatch />
+      <StopWatch selected={isSelected} finallyTask={finallyTask} />
       <List tasks={isTasks} selectedTask={selectedTask} />
     </div>
   );

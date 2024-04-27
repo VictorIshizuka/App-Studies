@@ -10,8 +10,19 @@ This template provides a minimal setup to get React working in Vite with HMR and
 - Descontinuando class e mundando para funções;\
 - Uso de CSS Sass;\
 - Uso de CSS modules;\
-- Uso de Typescript;
+- Uso de Typescript;\
+- Funciona o ciclo de vida de um componente;\
+- Utilizar função recursiva;
 
+### Funcionalidades:
+
+- ação de criar task: OK;\
+- ação de startar o cronômetro: OK;\
+- identificação do id para inicar cada task: OK;\
+- deletar task: FALTA ADICIONAR;\
+- atualizar task: FALTA ADICIONAR;\
+- ação de filtro: FALTA ADICIONAR;\
+- demais funções a se pensar ( será necessário um gerenciador de estados antes de tudo e refatorar  alguns componentes).
 
 ## Comoando iniciais
 

@@ -9,10 +9,13 @@ export const ItemList = ({
   id,
   selectedTask,
 }: Props) => {
+  console.log(completed);
   return (
     <>
       <li
-        className={`${style.item} ${selected ? style.itemSelected : ""}`}
+        className={`${style.item} ${selected ? style.itemSelected : ""} ${
+          completed ? style.itemCompleted : ""
+        }`}
         onClick={() => selectedTask({ task, time, selected, completed, id })}
       >
         <h3>{task}</h3>
