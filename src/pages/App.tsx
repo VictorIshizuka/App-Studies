@@ -6,15 +6,32 @@ import style from "./app.module.scss";
 import { TaskT } from "../types";
 
 function App() {
-  const [isValue, setIsValue] = useState<TaskT[]>([
-    { task: "react", time: "01:00:00" },
+  const [isSelected, setIsSelect] = useState<TaskT>();
+  const [isTasks, setIsTasks] = useState<TaskT[]>([
+    {
+      task: "react",
+      time: "01:00:00",
+      completed: false,
+      id: "2",
+      selected: false,
+    },
   ]);
+
+  function selectedTask(selectedTask: TaskT) {
+    setIsSelect(selectedTask);
+    setIsTasks(oldTasks =>
+      oldTasks.map(task => ({
+        ...task,
+        selected: task.id === isSelected?.id ? true : false,
+      }))
+    );
+  }
 
   return (
     <div className={style.AppStyle}>
-      <Form setState={setIsValue} />
+      <Form setState={setIsTasks} />
       <StopWatch />
-      <List tasks={isValue} />
+      <List tasks={isTasks} selectedTask={selectedTask} />
     </div>
   );
 }

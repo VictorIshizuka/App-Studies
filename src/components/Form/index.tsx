@@ -2,18 +2,26 @@ import React from "react";
 import { Button } from "../Button";
 import style from "./form.module.scss";
 import { TaskT } from "../../types";
+import { v4 as uuidv4 } from "uuid";
 
 export class Form extends React.Component<{
   setState: React.Dispatch<React.SetStateAction<TaskT[]>>;
 }> {
   state = {
     task: "",
-    time: "--:--",
+    time: "00:00",
+    selected: false,
+    completed: false,
+    id: 1,
   };
 
   onSave(e: React.FormEvent<HTMLInputElement>) {
     e.preventDefault();
-    this.props.setState(oldTasks => [...oldTasks, { ...this.state }]);
+    this.props.setState(oldTasks => [
+      ...oldTasks,
+      { ...this.state, selected: false, completed: false, id: uuidv4() },
+    ]);
+    this.setState({ task: "", time: "00:00" });
   }
 
   render(): React.ReactNode {
